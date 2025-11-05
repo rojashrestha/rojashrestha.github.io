@@ -1,83 +1,240 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Roja Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roja Portfolio — Contact</title>
+  <link rel="icon" href="rojapng.png" type="image/png" />
 
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <!-- Fonts & Icons -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Shared site CSS -->
 
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* --- Contact Page Styling --- */
+    main {
+      padding: 5rem 8% 3rem;
+    }
+
+    .contact-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 18px;
+      padding: 2.5rem 3rem;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      max-width: 800px;
+      width: 100%;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    body.dark-mode .contact-card {
+      background: rgba(30, 30, 30, 0.8);
+      box-shadow: 0 8px 18px rgba(255, 255, 255, 0.05);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .contact-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--teal);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .info-item {
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .info-item strong {
+      color: var(--navy);
+    }
+
+    .socials {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+    }
+
+    .socials .icon {
+      color: var(--teal);
+      font-size: 1.3rem;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .socials .icon:hover {
+      color: var(--sky-blue);
+      transform: scale(1.15);
+    }
+
+    /* --- Contact Form --- */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--sky-blue);
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(47, 65, 86, 0.15);
+    }
+
+    button.btn {
+      align-self: center;
+      background: var(--teal);
+      color: var(--white);
+      padding: 0.9rem 1.5rem;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button.btn:hover {
+      background: var(--navy);
+      transform: translateY(-2px);
+    }
+
+    body.dark-mode input,
+    body.dark-mode textarea {
+      background: rgba(30, 30, 30, 0.6);
+      color: #eee;
+      border-color: #444;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--teal);
+      color: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      animation: fadeInOut 3s ease forwards;
+    }
+
+    @keyframes fadeInOut {
+      0% {opacity: 0;}
+      10% {opacity: 1;}
+      90% {opacity: 1;}
+      100% {opacity: 0;}
+    }
+  </style>
+
 </head>
+
 <body>
   <div class="container">
     <div class="cover"></div>
 
-    <header>
-      <div class="left">
-        <h2>Roja Portfolio</h2>
-        <p class="subtitle">A Digital Journey Through Tech and Creativity</p>
-      </div>
-
-      <nav>
-        <a href="about.html">About</a>
-                <a href="project.html">Projects</a>
-                <a href="content.html">Content</a>
-                <a href="journal.html">Journal</a>
-                <a href="Gallery.html">Gallery</a>
-                <a href="contact.html">Contact</a>
-            
-      </nav>
-
-     
-      <button id="toggle-theme" class="toggle-btn">
-        <i id="theme-icon" class="fas fa-sun"></i>
-      </button>
-<div class="container">
-    <!-- Contact Info Card -->
-    <div class="card">
-      <h3>Let's Connect</h3>
-      <div class="info-item"><strong>Email</strong><br>rojacresta10</div>
-      <div class="info-item"><strong>Location</strong><br>Kathmandu, Nepal</div>
-      <hr>
-      <div class="socials">
-        <strong>Find me online</strong><br>
-        <a href="https://github.com/rojashrestha" target="_blank" class="icon"><i class="fab fa-github"></i></a>
-        <a href="https://www.instagram.com/rojashrestha__/" target="_blank" class="icon"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/roja-shrestha-897589209/"" target="_blank" class="icon"><i class="fab fa-linkedin"></i></a>
-      </div>
-    </div>
-
-<div class="form-section">
-      <h3>Write to me</h3>
-      <button id="toggle-form">Hide Form</button>
-      <div id="form-wrapper">
-        <form id="contact-form">
-          <input type="text" name="name" placeholder="Name" required />
-          <input type="email" name="email" placeholder="Email" required />
-          <input type="text" name="subject" placeholder="Subject" required />
-          <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-          <button type="submit">Send Message ✉️</button>
-        </form>
-      </div>
-    </div>
+```
+<!-- Header -->
+<header>
+  <div class="left">
+    <a href="index.html" class="logo-link"><h2>Roja Portfolio</h2></a>
+    <p class="subtitle">A learner</p>
   </div>
 
-  <div class="toast" id="toast">
-    Message sent!<br>Thank you for reaching out. I'll get back to you soon!
+  <nav>
+    <a href="about.html">About</a>
+    <a href="project.html">Projects</a>
+    <a href="journal.html">Journal</a>
+    <a href="Gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <button id="toggle-theme" class="toggle-btn">
+    <i id="theme-icon" class="fas fa-sun"></i>
+  </button>
+</header>
+
+<!-- Main -->
+<main>
+  <div class="contact-wrapper">
+    <!-- Contact Info -->
+    <div class="contact-card">
+      <h2>Let's Connect</h2>
+      <div class="info-item"><strong>Email:</strong> rojacresta10@gmail.com</div>
+      <div class="info-item"><strong>Location:</strong> Kathmandu, Nepal</div>
+      <div class="socials">
+        <a href="https://github.com/rojashrestha" target="_blank" class="icon"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/rojashrestha__/" target="_blank" class="icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/roja-shrestha-897589209/" target="_blank" class="icon"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-card">
+      <h2>Write to Me</h2>
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <input type="text" name="subject" placeholder="Subject" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message </button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2023 Roja Shrestha. All rights reserved.</p>
+</footer>
+```
+
+  </div>
+
+  <div class="toast" id="toast" style="display:none;">
+    Message sent!<br>Thank you for reaching out.
   </div>
 
   <script>
-    const form = document.getElementById('contact-form');
-    const toast = document.getElementById('toast');
+    // Theme toggle
     const toggleBtn = document.getElementById("toggle-theme");
     const icon = document.getElementById("theme-icon");
-    const toggleFormBtn = document.getElementById("toggle-form");
-    const formWrapper = document.getElementById("form-wrapper");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      icon.classList.toggle("fa-moon");
+      icon.classList.toggle("fa-sun");
+    });
 
-    form.addEventListener('submit', function (e) {
+    // Toast & form
+    const form = document.getElementById('contact-form');
+    const toast = document.getElementById('toast');
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       toast.style.display = 'block';
       setTimeout(() => {
@@ -85,27 +242,7 @@
         form.reset();
       }, 3000);
     });
-
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      if (document.body.classList.contains("dark-mode")) {
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
-      } else {
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-      }
-    });
-
-    toggleFormBtn.addEventListener("click", () => {
-      if (formWrapper.style.display === "none") {
-        formWrapper.style.display = "block";
-        toggleFormBtn.textContent = "Hide Form";
-      } else {
-        formWrapper.style.display = "none";
-        toggleFormBtn.textContent = "Show Form";
-      }
-    });
   </script>
+
 </body>
 </html>

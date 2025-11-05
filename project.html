@@ -1,60 +1,137 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Roja Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roja Portfolio — Projects</title>
+  <link rel="icon" href="rojapng.png" type="image/png" />
 
- 
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <!-- Fonts & Icons -->
 
-  <!-- Link to your main CSS file -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .project-image {
+      width: 80%;
+      max-width: 650px;
+      border-radius: 14px;
+      margin: 0 auto 1.5rem;
+      display: block;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .project-image:hover {
+      transform: scale(1.02);
+    }
+
+    .section-content p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    body.dark-mode .section-content p {
+      color: #eaeaea;
+    }
+
+    .coming-soon {
+      text-align: center;
+      margin-top: 3rem;
+      font-style: italic;
+      opacity: 0.8;
+    }
+  </style>
+
 </head>
+
 <body>
   <div class="container">
     <div class="cover"></div>
 
-    <header>
-        <button id="toggle-theme" class="toggle-btn">
-        <i id="theme-icon" class="fas fa-sun"></i>
-      </button>
-    </header>
-    <main>
-         <div class="Project-Container">
-        <h1>My Projects</h1>
-        <p class="subtitle">These are some of the projects I've been working on,
-             showcasing my skills in various technologies and problem domains.</p>
-    <section id="poject1" class="project-first">
-      <h2 class="section-title">Sorting Analyzer</h2>
-      <p class="section-content"> Sorting Analyzer , first college group project</p>  
+```
+<header>
+  <div class="left">
+    <a href="index.html" class="logo-link"><h2>Roja Portfolio</h2></a>
+    <p class="subtitle">A learner</p>
+  </div>
+
+  <nav>
+    <a href="about.html">About</a>
+    <a href="project.html">Projects</a>
+    <a href="journal.html">Journal</a>
+    <a href="Gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <button id="toggle-theme" class="toggle-btn">
+    <i id="theme-icon" class="fas fa-sun"></i>
+  </button>
+</header>
+
+<main>
+  <div class="section-container">
+
+    <section class="section-card">
+      <h2 class="section-title">Inventory Management System</h2>
+      <div class="section-content">
+        <img src="Inventory-management-system.png" alt="Inventory Management System Dashboard" class="project-image" />
+
+        <p>
+          A collaborative project by <strong>Saloni Rauniyar</strong>, <strong>Nischal Chaudhary</strong>, and <strong>Roja Shrestha</strong>,
+          built to simplify warehouse operations and automate restocking decisions.
+        </p>
+
+        <p>
+          The <strong>Inventory Management System</strong> is designed to handle multiple warehouses,
+          track product flow, and generate predictive insights using a <strong>forecasting model (ARIMA)</strong>.
+          It automatically notifies the warehouse manager when stock levels reach a critical point,
+          ensuring timely restocking and minimizing human error.
+        </p>
+
+        <p>
+          <strong>Technologies:</strong> Django • Python • Tailwind CSS • HTML • CSS • SQLite
+        </p>
+
+        <div style="margin-top:1rem;">
+          <a href="https://github.com/ronnin796/INV_SYS.git" target="_blank" class="contact-link">
+            <i class="fab fa-github"></i> View Source Code
+          </a>
+        </div>
+      </div>
     </section>
 
-    <section id="project2" class="project2">
-        <h2 class="section-title">Canva Creative Workshop</h2>
-        <p class="section-content">Non-technical college project</p>
-    </section>
+    <!-- Coming Soon Section -->
+    <section class="section-card">
+      <h2 class="section-title">More Projects</h2>
+      <div class="section-content coming-soon">
+        More creative projects coming soon 
       </div>
-    </main>
-</div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <p>© 2023 Roja Shrestha. All rights reserved.</p>
+</footer>
+```
+
+  </div>
 
   <script>
     const toggleBtn = document.getElementById("toggle-theme");
     const icon = document.getElementById("theme-icon");
-
     toggleBtn.addEventListener("click", () => {
       document.body.classList.toggle("dark-mode");
-
-      if (document.body.classList.contains("dark-mode")) {
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
-      } else {
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-      }
+      icon.classList.toggle("fa-moon");
+      icon.classList.toggle("fa-sun");
     });
   </script>
+
 </body>
 </html>

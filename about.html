@@ -2,109 +2,288 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Roja Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roja Portfolio — Contact</title>
+  <link rel="icon" href="rojapng.png" type="image/png" />
 
+  <!-- Fonts & Icons (match index.html) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
 
-  <
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* --- Shared Panel for About + Experience --- */
+    .panel {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease;
+      padding: 40px;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    body.dark-mode .panel {
+      background: #1f1f1f;
+      box-shadow: 0 8px 18px rgba(255, 255, 255, 0.05);
+    }
+
+    /* --- Page Layout --- */
+    .about {
+      padding: 60px 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .about-container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .profile-picture {
+      width: 280px;
+      height: 320px;
+      border-radius: 18px;
+      object-fit: cover;
+      object-position: center;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      flex-shrink: 0;
+    }
+
+    .about-me {
+      flex: 1;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    body.dark-mode .about-me {
+      color: #eaeaea;
+    }
+
+    .about-me h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .about-me h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    body.dark-mode .about-me h2 {
+      color: #cfcfcf;
+    }
+
+    .about-me p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    /* --- Experience Section --- */
+    .info-section {
+      width: 100%;
+    }
+
+    .info-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 25px;
+      font-family: 'Playfair Display', serif;
+      color: #333;
+      border-bottom: 2px solid #e2e2e2;
+      padding-bottom: 10px;
+    }
+
+    body.dark-mode .info-section h2 {
+      color: #eaeaea;
+      border-color: #333;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 25px;
+    }
+
+    .info-logo {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .info-text h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #444;
+    }
+
+    .info-text p {
+      font-size: 0.95rem;
+      color: #666;
+      margin: 2px 0;
+    }
+
+    body.dark-mode .info-text h3 {
+      color: #ddd;
+    }
+
+    body.dark-mode .info-text p {
+      color: #aaa;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 900px) {
+      .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .profile-picture {
+        width: 220px;
+        height: 260px;
+      }
+
+      .info-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .info-logo {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <div class="container">
     <div class="cover"></div>
 
-    <header>
-      <div class="left">
-        <h2>Roja Portfolio</h2>
-        <p class="subtitle">A Digital Journey Through Tech and Creativity</p>
-      </div>
-
-      <nav>
-        <a href="about.html">About</a>
-                <a href="project.html">Projects</a>
-                <a href="content.html">Content</a>
-                <a href="journal.html">Journal</a>
-                <a href="Gallery.html">Gallery</a>
-                <a href="contact.html">Contact</a>
-            
-      </nav>
-
-     
-      <button id="toggle-theme" class="toggle-btn">
-        <i id="theme-icon" class="fas fa-sun"></i>
-      </button>
-    </header>
-<body>
-    <section class = "about">
-        <div class = "about-container">
-            <img src="roja.jpg" alt="roja's photo" class="profile picture" / >
-            <div class = "about-me">
-                <h1>About Me</h1>
-            <div class="inside-about-me">
-                <h2>Hello there ! I'm Roja Shrestha</h2>
-                <p>A little mysterious, a little lazy but deeply passionate about creativity and learning.
-I won’t brag about my skills or projects here, because honestly, I haven’t mastered anything yet. 
-I like to keep things simple and raw but with a touch of perfection.
-
-As a Computer Science student, I want to code. But truth be told, I don’t always enjoy it.
- Still, there's a part of me that dreams of building life-changing technology. 
- Maybe God has different plans for me but I’m here, exploring every possibility.
-
-I haven’t quite figured out what I truly love, but being creative feels like a part of me.
-Beyond tech, I’m deeply curious about astrology and people’s personalities you could call me nosy, or just genuinely concerned.
-
-This space is a reflection of me ; honest, evolving, and unfinished. Just like all of us. 🌙</p>
-
-<div class="love-banner">
-  💄 Beauty & Skincare &nbsp; 🍳 Cooking &nbsp; 🔮 Astrology  &nbsp; 📚 Books & Journaling &nbsp; 🎬 Vlogging & Content &nbsp; 💻 Coding & Tech
-</div>
-
-
-<div class="story">
-    <h3>Story I want to cover</h3>
-    <p>✨
-I don’t know exactly where life will take me a few years from now and that’s okay. 
-But one thing has always been clear: my deep love for beauty and self-care. 
-As a tech student, I’ve often felt caught between two worlds : the creative and the technical 
-but I’ve come to realize that I don’t have to choose. 
-My dream is to create something meaningful that blends both.
- want to build tools, tell stories, and craft digital spaces that help people feel confident in their skin, 
- understand their beauty from the inside out, and embrace self-love through technology. 
- Because beauty isn’t just how we look. It’s how we feel, how we grow, and how we show up for ourselves. 
- And if I can make even one person feel more seen, more empowered, more beautiful ,
-then that’s the kind of impact I want to make.</p>
-</div>
-
-
-            </div>
-            </div>
-        </div>
-    </section>
-</body>
-
-
+   <header>
+  <div class="left">
+    <a href="index.html" class="logo-link">
+      <h2>Roja Portfolio</h2>
+    </a>
+    <p class="subtitle">A learner</p>
   </div>
 
+  <nav>
+    <a href="about.html">About</a>
+    <a href="project.html">Projects & Works</a>
+    <a href="journal.html">Journal</a>
+    <a href="Gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <button id="toggle-theme" class="toggle-btn">
+    <i id="theme-icon" class="fas fa-sun"></i>
+  </button>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+</header>
+
+
+    <!-- === About Section === -->
+    <section class="about">
+
+      <div class="about-container panel">
+        <img src="roja.jpg" alt="Roja's photo" class="profile-picture" />
+        <div class="about-me">
+          <h1>About Me</h1>
+          <div class="inside-about-me">
+            <h2>Hello there! I'm Roja Shrestha</h2>
+            <p>
+              Hi, I’m Roja Shrestha. I’m learning, discovering, and becoming.
+              I love exploring creativity through technology, journaling, and storytelling.
+              I’m currently pursuing Computer Engineering at Purbanchal University.
+              Everything you see here reflects my journey, honest, imperfect, and always evolving.
+            </p>
+            <p>
+              I haven’t quite figured out what I truly love as a Computer Science student,
+              but being creative feels like an essential part of me.
+              For now, I simply want to be a creative person in the room,
+              someone who keeps learning the smallest artistic details that make things beautiful.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- === Experience Section === -->
+      <div class="info-section panel">
+        <h2>Experience</h2>
+
+        <div class="info-item">
+          <div class="info-logo">
+            <img src="acitlogo.jpg" alt="ACIT Logo">
+          </div>
+          <div class="info-text">
+            <h3>Creative Lead, ACIT (2022 to 2025)</h3>
+            <p>
+              ACIT is a student-run IT committee at my college, and it has always been more than just a club; it is an emotion for me.
+              I contributed to the creative and technical activities of the ACIT club through design, coordination, event organization, and leadership.
+            </p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-logo">
+            <img src="tedxkamallogo.jpg" alt="TEDx Kamalpokhari Logo">
+          </div>
+          <div class="info-text">
+            <h3>Creative Affair, TEDxKamalpokhari (January 2024 to June 2024)</h3>
+            <p>
+              TEDxKamalpokhari is an independently organized event that brings together diverse voices to share and spread inspiring ideas.
+              As part of the creative team, I helped enhance and amplify its visual and digital presence, strengthening its creative content and engagement online.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer>
-        <p>© 2023 Roja Shrestha. All rights reserved.</p>
+      <p>© 2023 Roja Shrestha. All rights reserved.</p>
     </footer>
+  </div>
+
   <script>
     const toggleBtn = document.getElementById("toggle-theme");
     const icon = document.getElementById("theme-icon");
 
     toggleBtn.addEventListener("click", () => {
       document.body.classList.toggle("dark-mode");
-
-      if (document.body.classList.contains("dark-mode")) {
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
-      } else {
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-      }
+      icon.classList.toggle("fa-moon");
+      icon.classList.toggle("fa-sun");
     });
   </script>
 </body>
