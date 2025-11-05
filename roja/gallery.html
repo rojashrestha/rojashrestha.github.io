@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roja Portfolio — Gallery</title>
+
+  <link rel="icon" href="rojapng.png" type="image/png" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* --- Responsive, face-safe slideshow --- */
+    .slideshow {
+      position: relative;
+      width: 90%;
+      max-width: 850px;
+      height: 60vh; /* reduced height */
+      margin: 50px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      background: #000;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* prevents cutting faces */
+      background: #000; /* adds black padding for images with different ratios */
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 6px 14px;
+      border-radius: 10px;
+      letter-spacing: 0.3px;
+    }
+
+    body.dark-mode .caption {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    @media (max-width: 768px) {
+      .slideshow {
+        height: 50vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="cover"></div>
+
+  <header>
+  <div class="left">
+    <a href="index.html" class="logo-link">
+      <h2>Roja Portfolio</h2>
+    </a>
+    <p class="subtitle">A learner</p>
+  </div>
+
+  <nav>
+    <a href="about.html">About</a>
+    <a href="project.html">Projects & Works</a>
+    <a href="journal.html">Journal</a>
+    <a href="Gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+
+  <button id="toggle-theme" class="toggle-btn">
+    <i id="theme-icon" class="fas fa-sun"></i>
+  </button>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+</header>
+
+
+    <main>
+      <section id="gallery" class="section-card">
+        <h2 class="section-title">My Gallery</h2>
+        <div class="slideshow">
+          <div class="slide active">
+            <img src="Rimage1.jpg" alt="Photo 1" />
+          </div>
+    
+          
+          <div class="slide">
+            <img src="pic15.JPG" alt="Photo 16" />
+          </div>
+          <div class="slide">
+            <div class="slide">
+            <img src="pic13.JPG" alt="Photo 14" />
+          </div>
+          <div class="slide">
+            <img src="pic14.JPG" alt="Photo 15" />
+          </div>
+            <img src="pic1.jpg" alt="Photo 2" />
+          </div>
+          <div class="slide">
+            <img src="pic2.jpg" alt="Photo 3" />
+          </div>
+          <div class="slide">
+            <img src="pic3.jpeg" alt="Photo 4" />
+          </div>
+          <div class="slide">
+            <img src="pic4.jpeg" alt="Photo 5" />
+          </div>
+          <div class="slide">
+            <img src="pic5.JPG" alt="Photo 6" />
+          </div>
+          <div class="slide">
+            <img src="pic6.JPG" alt="Photo 7" />
+          </div>
+          <div class="slide">
+            <img src="pic7.JPG" alt="Photo 8" />
+          </div>
+          <div class="slide">
+            <img src="pic8.JPG" alt="Photo 9" />
+          </div>
+          <div class="slide">
+            <img src="pic9.JPG" alt="Photo 10" />
+          </div>
+          <div class="slide">
+            <img src="pic10.JPG" alt="Photo 11" />
+          </div>
+          <div class="slide">
+            <img src="pic11.JPG" alt="Photo 12" />
+          </div>
+          <div class="slide">
+            <img src="pic12.JPG" alt="Photo 13" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2023 Roja Shrestha. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // theme toggle
+    const toggleBtn = document.getElementById("toggle-theme");
+    const icon = document.getElementById("theme-icon");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      icon.classList.toggle("fa-moon");
+      icon.classList.toggle("fa-sun");
+    });
+
+    // slideshow logic
+    const slides = document.querySelectorAll(".slide");
+    let index = 0;
+    setInterval(() => {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 3000); // slide every 3 seconds
+  </script>
+</body>
+</html>

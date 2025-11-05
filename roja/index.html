@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roja Portfolio</title>
+    <link rel="icon" href="rojapng.png" type="image/png" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
+</head>
+<body>
+    <div class="container">
+      
+        <div class="cover"></div>
+
+        <header>
+            <div class="left">
+                <h2>Roja Portfolio</h2>
+                <p class="subtitle">A learner</p>
+            </div>
+          <nav>
+    <a href="about.html">About</a>
+    <a href="project.html">Projects & Works</a>
+    <a href="journal.html">Journal</a>
+    <a href="Gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  </nav>
+
+
+
+<button id="toggle-theme" class="toggle-btn">
+  <i id="theme-icon" class="fas fa-sun"></i> 
+</button>
+
+        </header>
+
+        <main>
+            <div class="section-container">
+                <!-- About Section -->
+                <section id="about" class="section-card">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-content">
+                        A Nepali CS student with a passion for tech, beauty, books, and more.
+                    </p>
+                </section>
+
+                <!-- Projects Section -->
+                <section id="projects" class="section-card">
+                    <h2 class="section-title">Projects & Works</h2>
+                    <p class="section-content">
+                         Projects I've built and contributed to.
+                    </p>
+                </section>
+
+              
+
+                <!-- Skills Section -->
+                <section id="skills" class="section-card">
+                    <h2 class="section-title">Skills</h2>
+                    <p class="section-content">
+                        Tools and technologies I use for coding, design, and content creation.
+                    </p>
+                </section>
+
+                <!-- Journal Section -->
+                <section id="journal" class="section-card">
+                    <h2 class="section-title">Journal</h2>
+                    <p class="section-content">
+                        Thoughts, tech journey notes, beauty tips, and life experiences.
+                    </p>
+                </section>
+                  
+
+                <!-- Contact Section -->
+                <section id="contact" class="section-card">
+                    <h2 class="section-title">Contact</h2>
+                    <div class="section-content">
+                        <p>Drop me a note. let's connect and collaborate!</p>
+                        <a href="mailto:rojacresta10@gmail.com" class="contact-link">
+                             rojacresta10@gmail.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/roja-shrestha-897589209/" class="contact-link">
+                             Connect on LinkedIn
+                        </a>
+                        <a href="https://github.com/rojashrestha" class="contact-link">
+                             github
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p>© 2023 Roja Shrestha. All rights reserved.</p>
+    </footer>
+<script>
+  const toggleBtn = document.getElementById("toggle-theme");
+  const themeIcon = document.getElementById("theme-icon");
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    
+    // Reverse the icon logic
+    if (document.body.classList.contains("dark-mode")) {
+      themeIcon.classList.replace("fa-sun", "fa-moon");
+    } else {
+      themeIcon.classList.replace("fa-moon", "fa-sun");
+    }
+  });
+</script>
+
+</body>
+</html>
