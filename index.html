@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Roja Portfolio — Home</title>
   <link rel="icon" href="rojapng.png" type="image/png" />
 
@@ -14,14 +14,37 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* Make whole section-cards clickable without changing your CSS */
-    .clickable {
-      position: relative;
-    }
+    /* Make section-cards fully clickable without changing your main CSS */
+    .clickable { position: relative; }
     .clickable .card-link {
-      position: absolute;
-      inset: 0;
-      z-index: 5;
+      position: absolute; inset: 0; z-index: 5;
+    }
+
+    /* Header layout fixes: keep controls on the right */
+    header#site-header {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px;
+    }
+    .right-controls { display: flex; align-items: center; gap: 10px; }
+    .menu-toggle {
+      display: none; background: transparent; border: 0; cursor: pointer;
+      font-size: 1.8rem; line-height: 1; padding: 6px 8px;
+    }
+
+    /* Nav base (desktop) */
+    .nav-menu { display: flex; align-items: center; gap: 30px; }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      header#site-header { flex-wrap: wrap; }
+      .menu-toggle { display: inline-block; }
+      .nav-menu {
+        display: none; width: 100%; flex-direction: column; gap: 10px;
+        text-align: center; padding: 12px 0; border-radius: 12px;
+        background: rgba(255,255,255,.85); backdrop-filter: blur(10px);
+      }
+      html.dark-mode .nav-menu { background: rgba(25,25,25,.9); }
+      header#site-header.nav-open .nav-menu { display: flex; }
     }
   </style>
 </head>
@@ -30,13 +53,14 @@
     <div class="cover"></div>
 
     <!-- Header -->
-    <header>
+    <header id="site-header">
       <div class="left">
         <a href="index.html" class="logo-link"><h2>Roja Portfolio</h2></a>
         <p class="subtitle">A learner</p>
       </div>
 
-      <nav>
+      <!-- Navigation -->
+      <nav id="primary-nav" class="nav-menu" aria-label="Primary">
         <a href="about.html">About</a>
         <a href="project.html">Projects & Works</a>
         <a href="journal.html">Journal</a>
@@ -44,9 +68,13 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <button id="toggle-theme" class="toggle-btn" aria-label="Toggle theme">
-        <i id="theme-icon" class="fas fa-sun"></i>
-      </button>
+      <!-- Right-side controls (always right) -->
+      <div class="right-controls">
+        <button class="menu-toggle" id="menu-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">☰</button>
+        <button id="toggle-theme" class="toggle-btn" aria-label="Toggle theme">
+          <i id="theme-icon" class="fas fa-sun" aria-hidden="true"></i>
+        </button>
+      </div>
     </header>
 
     <!-- Main -->
@@ -70,7 +98,7 @@
           </p>
         </section>
 
-        <!-- Skills (kept as info only on home) -->
+        <!-- Skills -->
         <section class="section-card">
           <h2 class="section-title">Skills</h2>
           <p class="section-content">
@@ -106,53 +134,43 @@
     <p>© 2023 Roja Shrestha. All rights reserved.</p>
   </footer>
 
+  <!-- One JS: theme + menu -->
   <script>
-    const toggleBtn = document.getElementById("toggle-theme");
-    const themeIcon = document.getElementById("theme-icon");
+    (function () {
+      const header   = document.getElementById('site-header');
+      const menuBtn  = document.getElementById('menu-toggle');
+      const nav      = document.getElementById('primary-nav');
+      const themeBtn = document.getElementById('toggle-theme');
+      const icon     = document.getElementById('theme-icon');
 
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      if (document.body.classList.contains("dark-mode")) {
-        themeIcon.classList.replace("fa-sun", "fa-moon");
-      } else {
-        themeIcon.classList.replace("fa-moon", "fa-sun");
-      }
-    });
+      // ---------- THEME ----------
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const saved = localStorage.getItem('theme');
+      const startDark = saved ? saved === 'dark' : prefersDark;
+
+      document.documentElement.classList.toggle('dark-mode', startDark);
+      icon.className = startDark ? 'fas fa-moon' : 'fas fa-sun';
+      themeBtn.setAttribute('aria-label', startDark ? 'Switch to light mode' : 'Switch to dark mode');
+
+      themeBtn.addEventListener('click', () => {
+        const nowDark = !document.documentElement.classList.contains('dark-mode');
+        document.documentElement.classList.toggle('dark-mode', nowDark);
+        localStorage.setItem('theme', nowDark ? 'dark' : 'light');
+        icon.className = nowDark ? 'fas fa-moon' : 'fas fa-sun';
+        themeBtn.setAttribute('aria-label', nowDark ? 'Switch to light mode' : 'Switch to dark mode');
+      });
+
+      // ---------- MENU ----------
+      menuBtn.addEventListener('click', () => {
+        const open = header.classList.toggle('nav-open');
+        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      // close menu when a link is tapped (mobile)
+      nav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => header.classList.remove('nav-open'));
+      });
+    })();
   </script>
-
-  <script>
-(function () {
-  const btn = document.getElementById('toggle-theme');
-  const icon = document.getElementById('theme-icon');
-
-  function isDark() {
-    return document.documentElement.classList.contains('dark-mode');
-  }
-
-  function setDarkMode(enable) {
-    document.documentElement.classList.toggle('dark-mode', enable);
-    localStorage.setItem('theme', enable ? 'dark' : 'light');
-    updateIcon();
-  }
-
-  function updateIcon() {
-    const dark = isDark();
-    icon.className = dark ? 'fas fa-moon' : 'fas fa-sun';
-    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
-  }
-
-  // Initial load
-  const saved = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  if (saved === 'dark' || (!saved && prefersDark)) {
-    document.documentElement.classList.add('dark-mode');
-  }
-  updateIcon();
-
-  // Click event
-  btn?.addEventListener('click', () => setDarkMode(!isDark()));
-})();
-</script>
-
 </body>
 </html>

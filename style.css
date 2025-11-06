@@ -337,3 +337,144 @@ html.dark-mode .toggle-btn {
     align-items: center;
   }
 }
+/* ============ HAMBURGER NAV ============ */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text);
+}
+
+/* keep theme button to the far right */
+#toggle-theme {
+  margin-left: 12px;
+}
+
+/* Desktop: normal row layout */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* ----- Mobile styles ----- */
+@media (max-width: 768px) {
+  header {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto auto; /* left | menu | theme */
+    gap: 10px;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: inline-block;
+    order: 2;
+  }
+
+  #toggle-theme {
+    order: 3;
+  }
+
+  /* collapsed by default */
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 10px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 12px 16px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    flex-direction: column;
+    gap: 12px;
+    z-index: 5;
+  }
+
+  /* show when header has .nav-open */
+  header.nav-open .nav-menu {
+    display: flex;
+  }
+
+  /* link touch targets */
+  .nav-menu a {
+    display: block;
+    width: 100%;
+    padding: 10px 6px;
+    border-radius: 8px;
+  }
+  .nav-menu a:active { background: rgba(0,0,0,0.05); }
+
+  /* dark mode surface */
+  body.dark-mode .nav-menu {
+    background: rgba(25,25,25,0.9);
+  }
+
+  /* tighten cards & grid on mobile */
+  .section-container { grid-template-columns: 1fr; }
+  .section-card { padding: 1.2rem; }
+}
+
+/* Optional: prevent ugly wide spacing from justify on small screens */
+@media (max-width: 600px) {
+  p { text-align: left; }
+}
+/* ---- FIX: keep dark-mode icon on right ---- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Hamburger + theme on right side for all devices */
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Hide hamburger normally, show only on small screens */
+.menu-toggle {
+  display: none;
+}
+
+/* ----- Responsive layout ----- */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 1.8rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav-menu {
+    width: 100%;
+    flex-direction: column;
+    display: none;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 12px 0;
+  }
+
+  header.nav-open .nav-menu {
+    display: flex;
+  }
+
+  body.dark-mode .nav-menu {
+    background: rgba(25, 25, 25, 0.9);
+  }
+}
