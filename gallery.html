@@ -179,5 +179,40 @@
       slides[index].classList.add("active");
     }, 3000); // slide every 3 seconds
   </script>
+
+  <script>
+(function () {
+  const btn = document.getElementById('toggle-theme');
+  const icon = document.getElementById('theme-icon');
+
+  function isDark() {
+    return document.documentElement.classList.contains('dark-mode');
+  }
+
+  function setDarkMode(enable) {
+    document.documentElement.classList.toggle('dark-mode', enable);
+    localStorage.setItem('theme', enable ? 'dark' : 'light');
+    updateIcon();
+  }
+
+  function updateIcon() {
+    const dark = isDark();
+    icon.className = dark ? 'fas fa-moon' : 'fas fa-sun';
+    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+
+  // Initial load
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (saved === 'dark' || (!saved && prefersDark)) {
+    document.documentElement.classList.add('dark-mode');
+  }
+  updateIcon();
+
+  // Click event
+  btn?.addEventListener('click', () => setDarkMode(!isDark()));
+})();
+</script>
+
 </body>
 </html>

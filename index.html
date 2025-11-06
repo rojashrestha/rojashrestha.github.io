@@ -1,119 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roja Portfolio</title>
-    <link rel="icon" href="rojapng.png" type="image/png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roja Portfolio — Home</title>
+  <link rel="icon" href="rojapng.png" type="image/png" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-/>
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
+  <!-- Site styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Make whole section-cards clickable without changing your CSS */
+    .clickable {
+      position: relative;
+    }
+    .clickable .card-link {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-      
-        <div class="cover"></div>
+  <div class="container">
+    <div class="cover"></div>
 
-        <header>
-            <div class="left">
-                <h2>Roja Portfolio</h2>
-                <p class="subtitle">A learner</p>
-            </div>
-            <nav>
-                <a href="about.html">About</a>
-                <a href="project.html">Projects & Works</a>
-                <a href="content.html">Content</a>
-                <a href="journal.html">Journal</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="contact.html">Contact</a>
-            
-            </nav>
+    <!-- Header -->
+    <header>
+      <div class="left">
+        <a href="index.html" class="logo-link"><h2>Roja Portfolio</h2></a>
+        <p class="subtitle">A learner</p>
+      </div>
 
+      <nav>
+        <a href="about.html">About</a>
+        <a href="project.html">Projects & Works</a>
+        <a href="journal.html">Journal</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
-<button id="toggle-theme" class="toggle-btn">
-  <i id="theme-icon" class="fas fa-sun"></i> 
-</button>
+      <button id="toggle-theme" class="toggle-btn" aria-label="Toggle theme">
+        <i id="theme-icon" class="fas fa-sun"></i>
+      </button>
+    </header>
 
-        </header>
+    <!-- Main -->
+    <main>
+      <div class="section-container">
+        <!-- About -->
+        <section class="section-card clickable">
+          <a class="card-link" href="about.html" aria-label="Go to About page"></a>
+          <h2 class="section-title">About Me</h2>
+          <p class="section-content">
+            A Nepali CS student with a passion for tech, beauty, books, and more.
+          </p>
+        </section>
 
-        <main>
-            <div class="section-container">
-                <!-- About Section -->
-                <section id="about" class="section-card">
-                    <h2 class="section-title">About Me</h2>
-                    <p class="section-content">
-                        A Nepali CS student with a passion for tech, beauty, books, and more.
-                    </p>
-                </section>
+        <!-- Projects -->
+        <section class="section-card clickable">
+          <a class="card-link" href="project.html" aria-label="Go to Projects page"></a>
+          <h2 class="section-title">Projects</h2>
+          <p class="section-content">
+            Projects I’ve built and contributed to.
+          </p>
+        </section>
 
-                <!-- Projects Section -->
-                <section id="projects" class="section-card">
-                    <h2 class="section-title">Projects</h2>
-                    <p class="section-content">
-                         projects I've built and contributed to.
-                    </p>
-                </section>
+        <!-- Skills (kept as info only on home) -->
+        <section class="section-card">
+          <h2 class="section-title">Skills</h2>
+          <p class="section-content">
+            Tools and technologies I use for coding, design, and content creation.
+          </p>
+        </section>
 
-               
+        <!-- Journal -->
+        <section class="section-card clickable">
+          <a class="card-link" href="journal.html" aria-label="Go to Journal page"></a>
+          <h2 class="section-title">Journal</h2>
+          <p class="section-content">
+            Thoughts, tech journey notes, beauty tips, and life experiences.
+          </p>
+        </section>
 
-                <!-- Skills Section -->
-                <section id="skills" class="section-card">
-                    <h2 class="section-title">Skills</h2>
-                    <p class="section-content">
-                        Tools and technologies I use for coding, design, and content creation.
-                    </p>
-                </section>
+        <!-- Contact -->
+        <section class="section-card clickable">
+          <a class="card-link" href="contact.html" aria-label="Go to Contact page"></a>
+          <h2 class="section-title">Contact</h2>
+          <div class="section-content">
+            <p>Drop me a note. Let’s connect and collaborate!</p>
+            <a href="mailto:rojacresta10@gmail.com" class="contact-link">rojacresta10@gmail.com</a>
+            <a href="https://www.linkedin.com/in/roja-shrestha-897589209/" class="contact-link" target="_blank" rel="noopener">Connect on LinkedIn</a>
+            <a href="https://github.com/rojashrestha" class="contact-link" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
 
-                <!-- Journal Section -->
-                <section id="journal" class="section-card">
-                    <h2 class="section-title">Journal</h2>
-                    <p class="section-content">
-                        Thoughts, tech journey notes, beauty tips, and life experiences.
-                    </p>
-                </section>
-                  
+  <footer>
+    <p>© 2023 Roja Shrestha. All rights reserved.</p>
+  </footer>
 
-                <!-- Contact Section -->
-                <section id="contact" class="section-card">
-                    <h2 class="section-title">Contact</h2>
-                    <div class="section-content">
-                        <p>Drop me a note. let's connect and collaborate!</p>
-                        <a href="mailto:rojacresta10@gmail.com" class="contact-link">
-                             rojacresta10@gmail.com
-                        </a>
-                        <a href="https://www.linkedin.com/in/roja-shrestha-897589209/" class="contact-link">
-                             Connect on LinkedIn
-                        </a>
-                        <a href="https://github.com/rojashrestha" class="contact-link">
-                            github
-                        </a>
-                    </div>
-                </section>
-            </div>
-        </main>
-    </div>
-    <footer>
-        <p>© 2023 Roja Shrestha. All rights reserved.</p>
-    </footer>
-<script>
-  const toggleBtn = document.getElementById("toggle-theme");
-  const themeIcon = document.getElementById("theme-icon");
+  <script>
+    const toggleBtn = document.getElementById("toggle-theme");
+    const themeIcon = document.getElementById("theme-icon");
 
-  toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    
-    // Reverse the icon logic
-    if (document.body.classList.contains("dark-mode")) {
-      themeIcon.classList.replace("fa-sun", "fa-moon");
-    } else {
-      themeIcon.classList.replace("fa-moon", "fa-sun");
-    }
-  });
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      if (document.body.classList.contains("dark-mode")) {
+        themeIcon.classList.replace("fa-sun", "fa-moon");
+      } else {
+        themeIcon.classList.replace("fa-moon", "fa-sun");
+      }
+    });
+  </script>
+
+  <script>
+(function () {
+  const btn = document.getElementById('toggle-theme');
+  const icon = document.getElementById('theme-icon');
+
+  function isDark() {
+    return document.documentElement.classList.contains('dark-mode');
+  }
+
+  function setDarkMode(enable) {
+    document.documentElement.classList.toggle('dark-mode', enable);
+    localStorage.setItem('theme', enable ? 'dark' : 'light');
+    updateIcon();
+  }
+
+  function updateIcon() {
+    const dark = isDark();
+    icon.className = dark ? 'fas fa-moon' : 'fas fa-sun';
+    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+
+  // Initial load
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (saved === 'dark' || (!saved && prefersDark)) {
+    document.documentElement.classList.add('dark-mode');
+  }
+  updateIcon();
+
+  // Click event
+  btn?.addEventListener('click', () => setDarkMode(!isDark()));
+})();
 </script>
 
 </body>

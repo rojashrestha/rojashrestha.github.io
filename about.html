@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Roja Portfolio — Contact</title>
+  <title>Roja Portfolio — About</title>
   <link rel="icon" href="rojapng.png" type="image/png" />
 
-  <!-- Fonts & Icons (match index.html) -->
+  <!-- Fonts & Icons (loaded once, here) -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
+  <!-- Shared site styles -->
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* --- Shared Panel for About + Experience --- */
+    /* ---------------------------
+       Local styles (scoped to About)
+       --------------------------- */
+
+    /* Reusable white/dark card wrapper */
     .panel {
       background: #fff;
       border-radius: 20px;
@@ -26,13 +28,12 @@
       max-width: 1100px;
       width: 100%;
     }
-
     body.dark-mode .panel {
       background: #1f1f1f;
       box-shadow: 0 8px 18px rgba(255, 255, 255, 0.05);
     }
 
-    /* --- Page Layout --- */
+    /* About page layout */
     .about {
       padding: 60px 10%;
       display: flex;
@@ -41,7 +42,6 @@
       flex-direction: column;
       gap: 40px;
     }
-
     .about-container {
       display: flex;
       align-items: flex-start;
@@ -50,6 +50,7 @@
       flex-wrap: wrap;
     }
 
+    /* Photo + text */
     .profile-picture {
       width: 280px;
       height: 320px;
@@ -59,16 +60,12 @@
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
       flex-shrink: 0;
     }
-
     .about-me {
       flex: 1;
       color: #333;
       line-height: 1.7;
     }
-
-    body.dark-mode .about-me {
-      color: #eaeaea;
-    }
+    body.dark-mode .about-me { color: #eaeaea; }
 
     .about-me h1 {
       font-size: 2rem;
@@ -76,28 +73,18 @@
       margin-bottom: 10px;
       font-family: 'Playfair Display', serif;
     }
-
     .about-me h2 {
       font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: 15px;
       color: #555;
     }
+    body.dark-mode .about-me h2 { color: #cfcfcf; }
 
-    body.dark-mode .about-me h2 {
-      color: #cfcfcf;
-    }
+    .about-me p { margin-bottom: 15px; text-align: justify; }
 
-    .about-me p {
-      margin-bottom: 15px;
-      text-align: justify;
-    }
-
-    /* --- Experience Section --- */
-    .info-section {
-      width: 100%;
-    }
-
+    /* Experience list */
+    .info-section { width: 100%; }
     .info-section h2 {
       font-size: 1.6rem;
       margin-bottom: 25px;
@@ -106,11 +93,7 @@
       border-bottom: 2px solid #e2e2e2;
       padding-bottom: 10px;
     }
-
-    body.dark-mode .info-section h2 {
-      color: #eaeaea;
-      border-color: #333;
-    }
+    body.dark-mode .info-section h2 { color: #eaeaea; border-color: #333; }
 
     .info-item {
       display: flex;
@@ -118,7 +101,6 @@
       gap: 18px;
       margin-bottom: 25px;
     }
-
     .info-logo {
       width: 60px;
       height: 60px;
@@ -131,12 +113,7 @@
       justify-content: center;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
-
-    .info-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+    .info-logo img { width: 100%; height: 100%; object-fit: contain; }
 
     .info-text h3 {
       font-size: 1.1rem;
@@ -144,44 +121,28 @@
       margin-bottom: 5px;
       color: #444;
     }
-
     .info-text p {
       font-size: 0.95rem;
       color: #666;
       margin: 2px 0;
     }
+    body.dark-mode .info-text h3 { color: #ddd; }
+    body.dark-mode .info-text p { color: #aaa; }
 
-    body.dark-mode .info-text h3 {
-      color: #ddd;
-    }
-
-    body.dark-mode .info-text p {
-      color: #aaa;
-    }
-
-    /* --- Responsive --- */
+    /* Responsive tweaks */
     @media (max-width: 900px) {
       .about-container {
         flex-direction: column;
         align-items: center;
         text-align: center;
       }
-
-      .profile-picture {
-        width: 220px;
-        height: 260px;
-      }
-
+      .profile-picture { width: 220px; height: 260px; }
       .info-item {
         flex-direction: column;
         align-items: center;
         text-align: center;
       }
-
-      .info-logo {
-        width: 70px;
-        height: 70px;
-      }
+      .info-logo { width: 70px; height: 70px; }
     }
   </style>
 </head>
@@ -190,35 +151,34 @@
   <div class="container">
     <div class="cover"></div>
 
-   <header>
-  <div class="left">
-    <a href="index.html" class="logo-link">
-      <h2>Roja Portfolio</h2>
-    </a>
-    <p class="subtitle">A learner</p>
-  </div>
+    <!-- Header / Nav (consistent across pages) -->
+    <header>
+      <div class="left">
+        <a href="index.html" class="logo-link">
+          <h2>Roja Portfolio</h2>
+        </a>
+        <p class="subtitle">A learner</p>
+      </div>
 
-  <nav>
-    <a href="about.html">About</a>
-    <a href="project.html">Projects & Works</a>
-    <a href="journal.html">Journal</a>
-    <a href="Gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+      <nav>
+        <a href="about.html">About</a>
+        <a href="project.html">Projects & Works</a>
+        <a href="journal.html">Journal</a>
+        <a href="Gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
-  <button id="toggle-theme" class="toggle-btn">
-    <i id="theme-icon" class="fas fa-sun"></i>
-  </button>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+      <button id="toggle-theme" class="toggle-btn" aria-label="Toggle theme">
+        <i id="theme-icon" class="fas fa-sun"></i>
+      </button>
+    </header>
 
-</header>
-
-
-    <!-- === About Section === -->
+    <!-- ABOUT -->
     <section class="about">
-
+      <!-- About card -->
       <div class="about-container panel">
-        <img src="roja.jpg" alt="Roja's photo" class="profile-picture" />
+        <img src="roja.jpg" alt="Roja Shrestha portrait" class="profile-picture" />
+
         <div class="about-me">
           <h1>About Me</h1>
           <div class="inside-about-me">
@@ -227,44 +187,45 @@
               Hi, I’m Roja Shrestha. I’m learning, discovering, and becoming.
               I love exploring creativity through technology, journaling, and storytelling.
               I’m currently pursuing Computer Engineering at Purbanchal University.
-              Everything you see here reflects my journey, honest, imperfect, and always evolving.
+              Everything you see here reflects my journey honest, imperfect, and always evolving.
             </p>
             <p>
               I haven’t quite figured out what I truly love as a Computer Science student,
-              but being creative feels like an essential part of me.
-              For now, I simply want to be a creative person in the room,
-              someone who keeps learning the smallest artistic details that make things beautiful.
+              but being creative feels like an essential part of me. For now, I want to be the
+              creative person in the room someone who keeps learning the small artistic details
+              that make things beautiful.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- === Experience Section === -->
+      <!-- Experience card -->
       <div class="info-section panel">
         <h2>Experience</h2>
 
         <div class="info-item">
           <div class="info-logo">
-            <img src="acitlogo.jpg" alt="ACIT Logo">
+            <img src="acitlogo.jpg" alt="ACIT logo">
           </div>
           <div class="info-text">
             <h3>Creative Lead, ACIT (2022 to 2025)</h3>
             <p>
-              ACIT is a student-run IT committee at my college, and it has always been more than just a club; it is an emotion for me.
-              I contributed to the creative and technical activities of the ACIT club through design, coordination, event organization, and leadership.
+              ACIT is a student-run IT committee at my college, and it’s always been more than a club — it’s an emotion for me.
+              I contributed across design, coordination, event organization, and leadership for creative and technical activities.
             </p>
           </div>
         </div>
 
         <div class="info-item">
           <div class="info-logo">
-            <img src="tedxkamallogo.jpg" alt="TEDx Kamalpokhari Logo">
+            <img src="tedxkamallogo.jpg" alt="TEDx Kamalpokhari logo">
           </div>
           <div class="info-text">
             <h3>Creative Affair, TEDxKamalpokhari (January 2024 to June 2024)</h3>
             <p>
-              TEDxKamalpokhari is an independently organized event that brings together diverse voices to share and spread inspiring ideas.
-              As part of the creative team, I helped enhance and amplify its visual and digital presence, strengthening its creative content and engagement online.
+              TEDxKamalpokhari brings together diverse voices to share and spread inspiring ideas.
+              As part of the creative team, I helped amplify its visual and digital presence, strengthening
+              creative content and online engagement.
             </p>
           </div>
         </div>
@@ -276,6 +237,7 @@
     </footer>
   </div>
 
+  <!-- Theme toggle -->
   <script>
     const toggleBtn = document.getElementById("toggle-theme");
     const icon = document.getElementById("theme-icon");
@@ -286,5 +248,39 @@
       icon.classList.toggle("fa-sun");
     });
   </script>
+  <script>
+(function () {
+  const btn = document.getElementById('toggle-theme');
+  const icon = document.getElementById('theme-icon');
+
+  function isDark() {
+    return document.documentElement.classList.contains('dark-mode');
+  }
+
+  function setDarkMode(enable) {
+    document.documentElement.classList.toggle('dark-mode', enable);
+    localStorage.setItem('theme', enable ? 'dark' : 'light');
+    updateIcon();
+  }
+
+  function updateIcon() {
+    const dark = isDark();
+    icon.className = dark ? 'fas fa-moon' : 'fas fa-sun';
+    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+
+  // Initial load
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (saved === 'dark' || (!saved && prefersDark)) {
+    document.documentElement.classList.add('dark-mode');
+  }
+  updateIcon();
+
+  // Click event
+  btn?.addEventListener('click', () => setDarkMode(!isDark()));
+})();
+</script>
+
 </body>
 </html>
